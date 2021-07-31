@@ -1,0 +1,7 @@
+# SMEV3
+SMEV3/bin
+SMEV3/obj
+
+# Visual Studio cache/options directory
+.vs/
+.vs

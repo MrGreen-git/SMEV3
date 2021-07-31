@@ -2,6 +2,7 @@
 using System.Xml.Serialization;
 using System.Xml;
 using SMEV3v13.Types.Basic;
+using Void = SMEV3v13.Types.Basic.Void;
 
 namespace SMEV3v13.Types
 {

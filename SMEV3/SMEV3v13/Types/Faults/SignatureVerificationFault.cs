@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMEV3v13.Types.Basic;
+using System;
 using System.Xml.Serialization;
 
 namespace SMEV3v13.Types.Faults

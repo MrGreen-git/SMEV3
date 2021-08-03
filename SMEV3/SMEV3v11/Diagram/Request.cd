@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="СМЭВ 3">
+    <Position X="6.689" Y="6.448" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="ПОТРЕБИТЕЛЬ">
+    <Position X="1.552" Y="6.644" Height="0.365" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Часть I. Отправка запроса от потребителя к поставщику&#xD;&#xA;1. Потребитель отправляет request в СМЭВ (push request) [SendRequest].Request&#xD;&#xA;2. Потребитель получатет ответ от СМЭВ (результат push request) [SendRequest].Response&#xD;&#xA;3. Поставщик отправляет запрос в СМЭВ (на pop request) [GetRequest].Request&#xD;&#xA;4. Поставщик получает request  из СМЭВ (pop request) [GetRequest].Response">
+    <Position X="0.5" Y="0.5" Height="1.031" Width="6.169" />
+  </Comment>
+  <Comment CommentText="ПОСТАВЩИК">
+    <Position X="11.647" Y="6.625" Height="0.306" Width="1.763" />
+  </Comment>
+  <Class Name="SMEV3v11.MessageContract.SendRequestRequestContract" Collapsed="true">
+    <Position X="3.75" Y="5.75" Width="2.5" />
+    <Members>
+      <Method Name="SendRequestRequestContract" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAACAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>SMEV3v11\MessageContract\SendRequestRequestContract.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="SenderProvidedRequestData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.MessageContract.SendRequestResponseContract" Collapsed="true">
+    <Position X="3.75" Y="7.25" Width="2.5" />
+    <Members>
+      <Method Name="SendRequestResponseContract" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\MessageContract\SendRequestResponseContract.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="MessageMetadata" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.Types.MessageMetadata">
+    <Position X="3.75" Y="8.5" Width="2.5" />
+    <Members>
+      <Property Name="DeliveryTimestampSpecified" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACAAAEIAAEgAAAAAAAAgAAAAAAAEAEAAABAAgICAA=</HashCode>
+      <FileName>SMEV3v11\Types\MessageMetadata.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMEV3v11.Types.SenderProvidedRequestData">
+    <Position X="3.75" Y="2" Width="2.5" />
+    <Members>
+      <Property Name="EOLSpecified" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAEAABAAAAAAQAACIAAAgEAAAABQAIAAI=</HashCode>
+      <FileName>SMEV3v11\Types\SenderProvidedRequestData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMEV3v11.MessageContract.GetRequestRequestContract" Collapsed="true">
+    <Position X="8.75" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>SMEV3v11\MessageContract\GetRequestRequestContract.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="MessageTypeSelector" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.MessageContract.GetRequestResponseContract" Collapsed="true">
+    <Position X="8.75" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\MessageContract\GetRequestResponseContract.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="RequestMessage" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.Types.Basic.MessageTypeSelector">
+    <Position X="8.75" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAQAAAAACAAAAACAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\Basic\MessageTypeSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMEV3v11.Types.GetRequestResponseRequestMessage" Collapsed="true">
+    <Position X="8.75" Y="8.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\GetRequestResponseRequestMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMEV3v11.Types.Request" Collapsed="true">
+    <Position X="11.75" Y="8.75" Width="2.75" />
+    <AssociationLine Name="SenderProvidedRequestData" Type="SMEV3v11.Types.SenderProvidedRequestData" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.75" Y="8.75" />
+        <Point X="13.75" Y="2.594" />
+        <Point X="6.25" Y="2.594" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAAAAACAAAAAAAAAACEAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\Request.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SenderProvidedRequestData" />
+      <Property Name="MessageMetadata" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.Types.Cancel" Collapsed="true">
+    <Position X="11.75" Y="9.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAEEACEAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\Cancel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMEV3v11.Types.Basic.AttachmentContentList" Collapsed="true">
+    <Position X="11.75" Y="10.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\Basic\AttachmentContentList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

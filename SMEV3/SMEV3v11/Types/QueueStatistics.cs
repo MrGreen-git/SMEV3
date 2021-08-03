@@ -5,7 +5,7 @@ namespace SMEV3v11.Types
 {
     [Serializable]
     [XmlType(AnonymousType = true, Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.1")]
-    public class GetIncomingQueueStatisticsResponseQueueStatistics
+    public class QueueStatistics
     {
         [XmlAttribute]
         public string queueName { get; set; }

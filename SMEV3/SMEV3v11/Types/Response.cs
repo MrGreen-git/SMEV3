@@ -2,6 +2,7 @@
 using System.Xml.Serialization;
 using System.Xml;
 using SMEV3v11.Types.Basic;
+using System.ServiceModel.Channels;
 
 namespace SMEV3v11.Types
 {
@@ -15,6 +16,11 @@ namespace SMEV3v11.Types
         [XmlElement(Order = 1)]
         public string OriginalTransactionCode { get; set; }
 
+        /// <summary>
+        /// Идентификатор сообщения, порождающего цепочку сообщений.
+        /// При отправке подчиненных сообщений значение соответствует MessageID корневого сообщения цепочки сообщений.
+        /// Для корневого сообщения значение совпадает с MessageID
+        /// </summary>
         [XmlElement(Order = 2)]
         public string ReferenceMessageID { get; set; }
 
@@ -28,6 +34,9 @@ namespace SMEV3v11.Types
         [XmlArrayItem("FSAttachment", IsNullable = false)]
         public FSAuthInfo[] FSAttachmentsList { get; set; }
 
+        /// <summary>
+        /// ЭП-ОВ или ЭП-ПГУ отправителя. Подписан элемент //SenderProvidedResponseData
+        /// </summary>
         [XmlElement(Order = 6)]
         public XmlElement SenderInformationSystemSignature { get; set; }
 

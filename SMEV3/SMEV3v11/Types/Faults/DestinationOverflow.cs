@@ -4,6 +4,10 @@ using System.Xml.Serialization;
 
 namespace SMEV3v11.Types.Faults
 {
+    /// <summary>
+    /// Входящая очередь получателя переполнена.
+    /// Обратиться в службу техподдержки СМЭВ, продолжать посылать сообщение.
+    /// </summary>
     [Serializable]
     [XmlType(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/faults/1.1")]
     public class DestinationOverflow : SmevFault

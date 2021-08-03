@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SMEV3v11.MessageContract.GetIncomingQueueStatisticsRequestContract">
+    <Position X="0.75" Y="0.75" Width="3.25" />
+    <Members>
+      <Method Name="GetIncomingQueueStatisticsRequestContract" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAACAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\MessageContract\GetIncomingQueueStatisticsRequestContract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMEV3v11.MessageContract.GetIncomingQueueStatisticsResponseContract">
+    <Position X="0.75" Y="3.5" Width="3.25" />
+    <Members>
+      <Method Name="GetIncomingQueueStatisticsResponseContract" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\MessageContract\GetIncomingQueueStatisticsResponseContract.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="QueueStatistics" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.Types.QueueStatistics">
+    <Position X="5.5" Y="3.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAQEAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\QueueStatistics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

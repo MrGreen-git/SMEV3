@@ -4,6 +4,10 @@ using System.Xml.Serialization;
 
 namespace SMEV3v11.Types.Basic
 {
+    /// <summary>
+    /// Сообщение невозможно принять по причине сбоя в инфраструктуре СМЭВ.
+    /// Действия клиента: должны предприниматься повторные попытки доставить сообщение, без ограничения количества попыток.
+    /// </summary>
     [XmlInclude(typeof(DestinationOverflow))]
     [XmlInclude(typeof(SignatureVerificationFault))]
     [XmlInclude(typeof(QuoteLimitExceeded))]

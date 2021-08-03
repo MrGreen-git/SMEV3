@@ -18,6 +18,6 @@ namespace SMEV3v11
 
         void Ack(AckTargetMessage AckTargetMessage, XmlElement CallerInformationSystemSignature);
 
-        GetIncomingQueueStatisticsResponseQueueStatistics[] GetIncomingQueueStatistics(string NodeID, Timestamp Timestamp, XmlElement CallerInformationSystemSignature);
+        QueueStatistics[] GetIncomingQueueStatistics(string NodeID, Timestamp Timestamp, XmlElement CallerInformationSystemSignature);
     }
 }

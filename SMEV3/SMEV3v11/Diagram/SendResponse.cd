@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SMEV3v11.MessageContract.SendResponseRequestContract">
+    <Position X="0.75" Y="0.5" Width="4.25" />
+    <Members>
+      <Method Name="SendResponseRequestContract" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAQAAE=</HashCode>
+      <FileName>SMEV3v11\MessageContract\SendResponseRequestContract.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="AttachmentContentList" />
+      <Field Name="SenderProvidedResponseData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.MessageContract.SendResponseResponseContract">
+    <Position X="0.75" Y="4.75" Width="4.25" />
+    <Members>
+      <Method Name="SendResponseResponseContract" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\MessageContract\SendResponseResponseContract.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="MessageMetadata" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.Types.Basic.AttachmentContentType">
+    <Position X="7.25" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\Basic\AttachmentContentType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMEV3v11.Types.SenderProvidedResponseData">
+    <Position X="7.25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAAAAACAAAAAAAAAAAAAAIAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\SenderProvidedResponseData.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ItemsElementName" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.Types.MessageMetadata">
+    <Position X="7" Y="4.75" Width="3.25" />
+    <Members>
+      <Property Name="DeliveryTimestampSpecified" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACAAAEIAAEgAAAAAAAAgAAAAAAAEAEAAABAAgICAA=</HashCode>
+      <FileName>SMEV3v11\Types\MessageMetadata.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MessageType" />
+      <Property Name="Status" />
+      <Property Name="SupplementaryData" />
+      <Property Name="Recipient" />
+      <Property Name="Sender" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.Types.SupplementaryData">
+    <Position X="3" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\SupplementaryData.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="InteractionType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SMEV3v11.Types.Recipient">
+    <Position X="6.5" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\Recipient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMEV3v11.Types.Sender">
+    <Position X="9.5" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\Sender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="SMEV3v11.Types.ItemsChoiceType">
+    <Position X="11.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAABAAAAAAAAAAAAAAQAAIAABAAIAAg=</HashCode>
+      <FileName>SMEV3v11\Types\ItemsChoiceType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMEV3v11.Types.MessageTypeType">
+    <Position X="12.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAkAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\MessageTypeType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMEV3v11.Types.Basic.InteractionStatusType">
+    <Position X="12.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICA4AAABAAAAAAAAAAAAAAACAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>SMEV3v11\Types\Basic\InteractionStatusType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SMEV3v11.Types.Basic.InteractionTypeType">
+    <Position X="3.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIABAAAACAAAAAAMAAEAAAAAAAAAAAAAAAAQAAAQ=</HashCode>
+      <FileName>SMEV3v11\Types\Basic\InteractionTypeType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

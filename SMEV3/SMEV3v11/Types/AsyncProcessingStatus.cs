@@ -11,9 +11,15 @@ namespace SMEV3v11.Types
         [XmlElement(Order = 0)]
         public string OriginalMessageId { get; set; }
 
+        /// <summary>
+        /// Категория статуса.
+        /// </summary>
         [XmlElement(Order = 1)]
         public InteractionStatusType StatusCategory { get; set; }
 
+        /// <summary>
+        /// Описание процессинга в человекочитаемом виде.
+        /// </summary>
         [XmlElement(Order = 2)]
         public string StatusDetails { get; set; }
 

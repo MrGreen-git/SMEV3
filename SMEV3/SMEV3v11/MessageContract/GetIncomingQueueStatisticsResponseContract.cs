@@ -9,13 +9,13 @@ namespace SMEV3v11.MessageContract
     [MessageContract(WrapperName = "GetIncomingQueueStatisticsResponse", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.1", IsWrapped = true)]
     public class GetIncomingQueueStatisticsResponseContract
     {
+        public GetIncomingQueueStatisticsResponseContract(QueueStatistics[] queueStatistics)
+        {
+            QueueStatistics = queueStatistics;
+        }
+
         [MessageBodyMember(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.1", Order = 0)]
         [XmlElement("QueueStatistics")]
-        public GetIncomingQueueStatisticsResponseQueueStatistics[] QueueStatistics;
-
-        public GetIncomingQueueStatisticsResponseContract(GetIncomingQueueStatisticsResponseQueueStatistics[] QueueStatistics)
-        {
-            this.QueueStatistics = QueueStatistics;
-        }
+        public QueueStatistics[] QueueStatistics;  
     }
 }

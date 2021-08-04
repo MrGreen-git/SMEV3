@@ -5,14 +5,20 @@ namespace SMEV3v12.Types
 {
     [Serializable]
     [XmlType(AnonymousType = true, Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2")]
-    public class SenderProvidedResponseDataRequestStatus
+    public class RequestStatus
     {
+        /// <summary>
+        /// Код бизнес статуса запроса
+        /// </summary>
         [XmlElement(Order = 0)]
         public int StatusCode { get; set; }
 
         [XmlElement("StatusParameter", Order = 1)]
-        public SenderProvidedResponseDataRequestStatusStatusParameter[] StatusParameter { get; set; }
+        public StatusParameter[] StatusParameter { get; set; }
 
+        /// <summary>
+        /// Бизнес статус запроса, в человекочитаемом виде
+        /// </summary>
         [XmlElement(Order = 2)]
         public string StatusDescription { get; set; }
     }

@@ -11,6 +11,9 @@ namespace SMEV3v11.MessageContract
     [MessageContract(WrapperName = "SendRequestResponse", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.1", IsWrapped = true)]
     public class SendRequestResponseContract
     {
+        /// <summary/>
+        protected SendRequestResponseContract() { }
+
         public SendRequestResponseContract(MessageMetadata messageMetadata, XmlElement SMEVSignature)
         {
             MessageMetadata = messageMetadata;

@@ -9,6 +9,6 @@ namespace SMEV3v12.Types.Faults
     public class SignatureVerificationFault : SmevFault
     {
         [XmlElement("SignatureVerificationFault", Order = 0)]
-        public SignatureVerificationFaultSignatureVerificationFault SignatureVerificationFault1 { get; set; }
+        public SignatureVerificationFaultType SignatureVerificationFault1 { get; set; }
     }
 }

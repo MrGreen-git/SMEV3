@@ -4,6 +4,9 @@ using System.Xml.Serialization;
 
 namespace SMEV3v12.Types.Basic
 {
+    /// <summary>
+    /// Тип элемента, который передаёт информацию фактом своего наличия
+    /// </summary>
     [XmlInclude(typeof(SmevFault))]
     [XmlInclude(typeof(DestinationOverflow))]
     [XmlInclude(typeof(SignatureVerificationFault))]

@@ -14,6 +14,9 @@ namespace SMEV3v11.MessageContract
     [MessageContract(WrapperName = "GetIncomingQueueStatisticsRequest", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.1", IsWrapped = true)]
     public class GetIncomingQueueStatisticsRequestContract
     {
+        /// <summary/>
+        protected GetIncomingQueueStatisticsRequestContract() { }
+
         public GetIncomingQueueStatisticsRequestContract(string nodeID, Timestamp timestamp, XmlElement callerInformationSystemSignature)
         {
             NodeID = nodeID;

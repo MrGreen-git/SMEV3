@@ -15,6 +15,9 @@ namespace SMEV3v11.MessageContract
     [MessageContract(WrapperName = "GetRequestRequest", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.1", IsWrapped = true)]
     public class GetRequestRequestContract
     {
+        /// <summary/>
+        protected GetRequestRequestContract() { }
+
         public GetRequestRequestContract(MessageTypeSelector messageTypeSelector, XmlElement callerInformationSystemSignature)
         {
             MessageTypeSelector = messageTypeSelector;

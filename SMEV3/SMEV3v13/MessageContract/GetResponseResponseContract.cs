@@ -9,6 +9,9 @@ namespace SMEV3v13.MessageContract
     [MessageContract(WrapperName = "GetResponseResponse", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.3", IsWrapped = true)]
     public class GetResponseResponseContract
     {
+        /// <summary/>
+        protected GetResponseResponseContract() { }
+
         public GetResponseResponseContract(GetResponseResponseResponseMessage item)
         {
             Item = item;

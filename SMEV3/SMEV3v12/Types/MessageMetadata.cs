@@ -4,6 +4,9 @@ using System.Xml.Serialization;
 
 namespace SMEV3v12.Types
 {
+    /// <summary>
+    /// Маршрутная информация, заполняемая СМЭВ
+    /// </summary>
     [Serializable]
     [XmlType(AnonymousType = true, Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2")]
     public class MessageMetadata
@@ -14,15 +17,27 @@ namespace SMEV3v12.Types
         [XmlElement(Order = 1)]
         public MessageTypeType MessageType { get; set; }
 
+        /// <summary>
+        /// Информация об отправителе сообщения.
+        /// </summary>
         [XmlElement(Order = 2)]
-        public MessageMetadataSender Sender { get; set; }
+        public Sender Sender { get; set; }
 
+        /// <summary>
+        /// Дата и время отправки сообщения в СМЭВ.
+        /// </summary>
         [XmlElement(Order = 3)]
         public DateTime SendingTimestamp { get; set; }
 
+        /// <summary>
+        /// Получатель сообщения (вычислен маршрутизатором). Для широковещательных сообщений не заполняется.
+        /// </summary>
         [XmlElement(Order = 4)]
-        public MessageMetadataRecipient Recipient { get; set; }
+        public Recipient Recipient { get; set; }
 
+        /// <summary>
+        /// Дата и время доставки сообщения, по часам СМЭВ.
+        /// </summary>
         [XmlElement(Order = 5)]
         public DateTime DeliveryTimestamp { get; set; }
 

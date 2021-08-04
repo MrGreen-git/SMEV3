@@ -11,6 +11,9 @@ namespace SMEV3v11.MessageContract
     [MessageContract(WrapperName = "GetRequestResponse", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.1", IsWrapped = true)]
     public class GetRequestResponseContract
     {
+        /// <summary/>
+        protected GetRequestResponseContract() { }
+
         public GetRequestResponseContract(GetRequestResponseRequestMessage requestMessage)
         {
             RequestMessage = requestMessage;

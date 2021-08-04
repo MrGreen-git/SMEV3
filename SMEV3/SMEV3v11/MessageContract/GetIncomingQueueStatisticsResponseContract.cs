@@ -9,6 +9,9 @@ namespace SMEV3v11.MessageContract
     [MessageContract(WrapperName = "GetIncomingQueueStatisticsResponse", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.1", IsWrapped = true)]
     public class GetIncomingQueueStatisticsResponseContract
     {
+        /// <summary/>
+        protected GetIncomingQueueStatisticsResponseContract() { }
+
         public GetIncomingQueueStatisticsResponseContract(QueueStatistics[] queueStatistics)
         {
             QueueStatistics = queueStatistics;

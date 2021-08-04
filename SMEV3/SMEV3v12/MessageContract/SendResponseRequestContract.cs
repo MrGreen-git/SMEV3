@@ -6,9 +6,13 @@ using SMEV3v12.Types.Basic;
 
 namespace SMEV3v12.MessageContract
 {
+    /// <summary>
+    /// Параметры метода "Послать ответ на запрос"
+    /// </summary>
     [MessageContract(WrapperName = "SendResponseRequest", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2", IsWrapped = true)]
     public class SendResponseRequestContract
     {
+        /// <summary/>
         protected SendResponseRequestContract() { }
 
         public SendResponseRequestContract(SenderProvidedResponseData senderProvidedResponseData, AttachmentContentType[] attachmentContentList, XmlElement callerInformationSystemSignature)
@@ -25,6 +29,9 @@ namespace SMEV3v12.MessageContract
         [XmlElement("AttachmentContentType", typeof(AttachmentContentType), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2")]
         public AttachmentContentType[] AttachmentContentList;
 
+        /// <summary>
+        /// ЭП-ОВ или ЭП-ПГУ. Подписан элемент //SenderProvidedResponseData.
+        /// </summary>
         [MessageBodyMember(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2", Order = 2)]
         public XmlElement CallerInformationSystemSignature;
     }

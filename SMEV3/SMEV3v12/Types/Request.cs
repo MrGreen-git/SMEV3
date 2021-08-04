@@ -12,6 +12,14 @@ namespace SMEV3v12.Types
         [XmlElement(Order = 0)]
         public SenderProvidedRequestData SenderProvidedRequestData { get; set; }
 
+        /// <summary>
+        /// Информация об отправителе, дате отправки, маршрутизации сообщения, и другая (см. определение типа).
+        /// Все данные заполняются СМЭВ.
+        /// Элемент //MessageMetadata/SendingTimestamp содержит дату и время, начиная с которых отсчитывается срок исполнения запроса.
+        /// Остальные данные предназначены для целей анализа (машинного и ручного) качества обслуживания
+        /// информационной системы - получателя сообщения,
+        /// а также для предоставления службе поддержки оператора СМЭВ в случае необходимости.
+        /// </summary>
         [XmlElement(Order = 1)]
         public MessageMetadata MessageMetadata { get; set; }
 
@@ -19,9 +27,21 @@ namespace SMEV3v12.Types
         [XmlArrayItem("FSAttachment", IsNullable = false)]
         public FSAuthInfo[] FSAttachmentsList { get; set; }
 
+        /// <summary>
+        /// Аналог обратного адреса; непрозрачный объект, по которому СМЭВ сможет вычислить, кому доставить ответ на этот запрос.
+        /// При отправке ответа нужно скопировать это значение в //SenderProvidedResponseData/To/text().
+        /// N.B.Формат обратного адреса не специфицирован, и может меняться со временем.
+        /// Больше того, в запросах, пришедших от одного и того же отправителя через сколь угодно малый промежуток времени,
+        /// обратный адрес не обязан быть одним и тем же.
+        /// Если получатель хочет идентифицировать отправителя, можно использовать сертификат отправителя
+        /// (//GetMessageIfAnyResponse/CallerInformationSystemSignature/xmldsig:Signature/...)
+        /// </summary>
         [XmlElement(Order = 3)]
         public string ReplyTo { get; set; }
 
+        /// <summary>
+        /// ЭП-ОВ или ЭП-ПГУ отправителя. Подписан элемент //SenderProvidedRequestData
+        /// </summary>
         [XmlElement(Order = 4)]
         public XmlElement SenderInformationSystemSignature { get; set; }
 

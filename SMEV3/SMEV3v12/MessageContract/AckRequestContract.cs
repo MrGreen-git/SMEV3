@@ -6,10 +6,14 @@ using SMEV3v12.Types.Basic;
 
 namespace SMEV3v12.MessageContract
 {
+    /// <summary>
+    /// Параметры метода "Подтверждение получения сообщения".
+    /// </summary>
     [EditorBrowsable(EditorBrowsableState.Advanced)]
     [MessageContract(WrapperName = "AckRequest", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2", IsWrapped = true)]
     public class AckRequestContract
     {
+        /// <summary/>
         protected AckRequestContract() { }
 
         public AckRequestContract(AckTargetMessage ackTargetMessage, XmlElement callerInformationSystemSignature)

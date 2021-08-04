@@ -1,0 +1,26 @@
+﻿1.Добавлен XmlRoot
+[Serializable]
+[XmlRoot(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2")]
+[XmlType(AnonymousType = true, Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2")]
+public class SenderProvidedRequestData
+
+2.
+AttachmentContentList -> AttachmentContentType
+public partial class SendRequestRequest {
+
+public partial class SendResponseRequest {
+
+GetRequestResponseRequestMessage
+
+3.
+AttachmentHeaderList -> AttachmentHeaderType 
+
+public partial class SenderProvidedResponseData  -- AttachmentHeaderList
+													RefAttachmentHeaderList
+
+
+namespace SMEV3v12.Types
+{
+    [Serializable]
+    [XmlType(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2", IncludeInSchema = false)]
+    public enum ItemsChoiceType

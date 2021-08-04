@@ -6,6 +6,7 @@ using SMEV3v12.Types.Basic;
 namespace SMEV3v12.Types
 {
     [Serializable]
+    [XmlRoot(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2")]
     [XmlType(AnonymousType = true, Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2")]
     public class SenderProvidedRequestData
     {
@@ -33,10 +34,10 @@ namespace SMEV3v12.Types
         [XmlElement(Order = 6)]
         public XmlElement PersonalSignature { get; set; }
 
-        [XmlElement("AttachmentHeaderList", typeof(AttachmentHeaderList), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2", Order = 7)]
+        [XmlElement("AttachmentHeaderType", typeof(AttachmentHeaderType), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2", Order = 7)]
         public AttachmentHeaderType[] AttachmentHeaderList { get; set; }
 
-        [XmlElement("RefAttachmentHeaderList", typeof(RefAttachmentHeaderList), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2", Order = 8)]
+        [XmlElement("RefAttachmentHeaderType", typeof(RefAttachmentHeaderType), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2", Order = 8)]
         public RefAttachmentHeaderType[] RefAttachmentHeaderList { get; set; }
 
         [XmlElement(Order = 9)]

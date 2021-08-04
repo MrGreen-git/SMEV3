@@ -2,6 +2,10 @@
 SMEV3/bin
 SMEV3/obj
 
+# Test
+Test/bin
+Test/obj
+
 # Visual Studio cache/options directory
 .vs/
 .vs

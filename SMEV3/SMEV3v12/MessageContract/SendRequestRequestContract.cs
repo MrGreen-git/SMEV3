@@ -9,6 +9,8 @@ namespace SMEV3v12.MessageContract
     [MessageContract(WrapperName = "SendRequestRequest", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2", IsWrapped = true)]
     public class SendRequestRequestContract
     {
+        protected SendRequestRequestContract() { }
+
         public SendRequestRequestContract(SenderProvidedRequestData senderProvidedRequestData, AttachmentContentType[] attachmentContentList, XmlElement callerInformationSystemSignature)
         {
             SenderProvidedRequestData = senderProvidedRequestData;
@@ -20,7 +22,7 @@ namespace SMEV3v12.MessageContract
         public SenderProvidedRequestData SenderProvidedRequestData { get; set; }
 
         [MessageBodyMember(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2", Order = 1)]
-        [XmlElement("AttachmentContentList", typeof(AttachmentContentList), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2")]
+        [XmlElement("AttachmentContentType", typeof(AttachmentContentType), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2")]
         public AttachmentContentType[] AttachmentContentList { get; set; }
 
         [MessageBodyMember(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2", Order = 2)]

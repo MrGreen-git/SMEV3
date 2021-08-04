@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SMEV3v11.Types.Basic;
+using System;
 using System.Xml.Serialization;
 
 namespace SMEV3.SMEV3v11.Types.Basic

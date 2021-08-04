@@ -19,9 +19,9 @@ namespace SMEV3v12.Types
         [XmlElement("PersonalSignature", typeof(XmlElement), Order = 2)]
         [XmlElement("RequestRejected", typeof(SenderProvidedResponseDataRequestRejected), Order = 2)]
         [XmlElement("RequestStatus", typeof(SenderProvidedResponseDataRequestStatus), Order = 2)]
-        [XmlElement("AttachmentHeaderList", typeof(AttachmentHeaderList), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2", Order = 2)]
+        [XmlElement("AttachmentHeaderType", typeof(AttachmentHeaderType), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2", Order = 2)]
         [XmlElement("MessagePrimaryContent", typeof(XmlElement), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2", Order = 2)]
-        [XmlElement("RefAttachmentHeaderList", typeof(RefAttachmentHeaderList), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2", Order = 2)]
+        [XmlElement("RefAttachmentHeaderType", typeof(RefAttachmentHeaderType), Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2", Order = 2)]
         [XmlChoiceIdentifier("ItemsElementName")]
         public object[] Items { get; set; }
 

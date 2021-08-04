@@ -4,7 +4,7 @@ using System.ServiceModel;
 
 namespace SMEV3v12
 {
-    [ServiceContract(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/1.2", ConfigurationName = "SMEVMessageExchangePortType")]
+    [ServiceContract(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/1.2", ConfigurationName = "SMEV3v12.ISMEVMessageExchangePortType")]
     public interface ISMEVMessageExchangePortType
     {
         [OperationContract(Action = "urn:SendRequest", ReplyAction = "*")]

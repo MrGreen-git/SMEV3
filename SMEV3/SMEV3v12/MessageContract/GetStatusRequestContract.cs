@@ -10,6 +10,8 @@ namespace SMEV3v12.MessageContract
     [MessageContract(WrapperName = "GetStatusRequest", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2", IsWrapped = true)]
     public class GetStatusRequestContract
     {
+        protected GetStatusRequestContract() { }
+
         public GetStatusRequestContract(Timestamp Timestamp, XmlElement CallerInformationSystemSignature)
         {
             this.Timestamp = Timestamp;

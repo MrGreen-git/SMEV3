@@ -8,6 +8,8 @@ namespace SMEV3v12.MessageContract
     [MessageContract(WrapperName = "GetStatusResponse", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2", IsWrapped = true)]
     public class GetStatusResponseContract
     {
+        protected GetStatusResponseContract() { }
+
         public GetStatusResponseContract(SmevAsyncProcessingMessage smevAsyncProcessingMessage)
         {
             SmevAsyncProcessingMessage = smevAsyncProcessingMessage;

@@ -10,6 +10,8 @@ namespace SMEV3v12.MessageContract
     [MessageContract(WrapperName = "AckRequest", WrapperNamespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/1.2", IsWrapped = true)]
     public class AckRequestContract
     {
+        protected AckRequestContract() { }
+
         public AckRequestContract(AckTargetMessage ackTargetMessage, XmlElement callerInformationSystemSignature)
         {
             AckTargetMessage = ackTargetMessage;

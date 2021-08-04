@@ -12,7 +12,7 @@
   <Comment CommentText="ПОСТАВЩИК">
     <Position X="11.647" Y="6.625" Height="0.306" Width="1.763" />
   </Comment>
-  <Class Name="SMEV3v11.MessageContract.SendRequestRequestContract" Collapsed="true">
+  <Class Name="SMEV3v11.MessageContract.SendRequestRequestContract">
     <Position X="3.75" Y="5.75" Width="2.5" />
     <Members>
       <Method Name="SendRequestRequestContract" Hidden="true" />

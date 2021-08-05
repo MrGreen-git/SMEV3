@@ -10,6 +10,7 @@ namespace SMEV3v12.Types.Basic
     /// из //GetResponseResponse/.../SenderProvidedRequestData/MessageID/text().
     /// </summary>
     [Serializable]
+    [XmlRoot(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2")]
     [XmlType(AnonymousType = true, Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2")]
     public class AckTargetMessage
     {

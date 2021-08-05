@@ -4,74 +4,147 @@ using System.Security.Cryptography.Xml;
 using System.Xml;
 using CryptoPro.Sharpei.Xml;
 using GisGmp;
-using GisGmp.Common;
 using GisGmp.SearchConditions;
 using SMEV3v12;
 using SMEV3v12.Types;
+using SMEV3v12.Types.Basic;
 
 namespace Test
 {
     class Program
     {
+        static ISMEVMessageExchangePortTypeClient client  = new SMEVMessageExchangePortTypeClient();
+
         static void Main(string[] args)
         {
-			SMEVMessageExchangePortTypeClient client = new SMEVMessageExchangePortTypeClient();
-			client.Endpoint.Behaviors.Add(new InspectorBehavior());
-
-			//ГИС ГМП
-			GisGmpBuilder gisgmp = new GisGmpBuilder()
-			{
-				SenderIdentifier = "30d677",
-				SenderRole = "1",
-				PageLength = 100,
-				PageNumber = 1,
-			};
-
-			var request = gisgmp.CreateExportPaymentsRequest(
-					paymentsKind: ExportPaymentsKind.PAYMENT,
-					timeInterval: new TimeIntervalType(DateTime.Now.AddDays(-1), DateTime.Now),
-					kbk: new KBKType[] { "21220300000000000130" }
-					);
-
-			var xmlRequest = GisGmpBuilder.SerializerObject(request);
-
+            (client as SMEVMessageExchangePortTypeClient).Endpoint.Behaviors.Add(new InspectorBehavior());
 
             try
             {
-                SenderProvidedRequestData senderProvidedRequestData = new SenderProvidedRequestData()
-                {
-                    Id = "SMEV",//"C_" + Guid.NewGuid().ToString(),
-                    MessageID = GuidGenerator.GenerateTimeBasedGuid().ToString(),
-                    MessagePrimaryContent = GisGmpBuilder.SerializerObject(request).DocumentElement,
-                    TestMessage = new SMEV3v12.Types.Basic.Void(),
-                    PersonalSignature = GisGmpBuilder.SerializerObject(Signed(xmlRequest, x509Certificate2(), request.Id)).DocumentElement,
+                var request = Request();
+                Console.WriteLine(request?.MessageId);
 
-                };
-                XmlDocument xmlDoc = GisGmpBuilder.SerializerObject(senderProvidedRequestData);
-
-                //Проверить ЭП-СП
-                var valid = Verification(GisGmpBuilder.SerializerObject(senderProvidedRequestData));
-
-
-
-                var smevSing = GisGmpBuilder.SerializerObject(Signed(xmlDoc, x509Certificate2(), senderProvidedRequestData.Id)).DocumentElement;
-
-
-                var t = ((ISMEVMessageExchangePortTypeClient)client).SendRequest(
-                    senderProvidedRequestData,
-                    null,
-                    smevSing,
-                    out _);
+                var response = Response();
+                Console.WriteLine(response?.Response.OriginalMessageId);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
 
-            Console.WriteLine("Good");
             Console.ReadKey();
         }
 
+        private static MessageMetadata Request()
+        {
+            //Настройка ГИС ГМП
+            GisGmpBuilder gisgmp = new GisGmpBuilder()
+            {
+                TestEnable = true,
+                //
+                Test_Id = "G_a108e1f7-e0f0-48d2-8e80-b64a423efe4e",
+                Test_Timestamp = new DateTime(day: 30, month: 09, year: 2020, hour: 18, minute: 13, second: 51),
+                SenderIdentifier = "3eb646",
+                SenderRole = "9",
+
+                PageNumber = 1,
+                PageLength = 100
+            };
+
+            //Запрос ГИС ГМП
+            var requestGisGmp = gisgmp.CreateExportPaymentsRequest(
+                paymentsKind: ExportPaymentsKind.PAYMENT,
+                uin: new SupplierBillIDType[] { new SupplierBillIDType("32117072411021588933") }
+                );
+            var xmlRequestGisGmp = GisGmpBuilder.SerializerObject(requestGisGmp, true);
+
+            var signPersonal = Signed(xmlRequestGisGmp, x509Certificate2(), requestGisGmp.Id);
+            var xmlSignPersonal = GisGmpBuilder.SerializerObject(signPersonal);
+
+            //СМЭВ
+            SenderProvidedRequestData senderProvidedRequestData = new SenderProvidedRequestData()
+            {
+                Id = "SMEV",//"C_" + Guid.NewGuid().ToString(),
+                MessageID = GuidGenerator.GenerateTimeBasedGuid().ToString(),
+                MessagePrimaryContent = xmlRequestGisGmp.DocumentElement,
+                TestMessage = new SMEV3v12.Types.Basic.Void(),
+                PersonalSignature = xmlSignPersonal.DocumentElement
+            };
+            var xmlSenderProvidedRequestData = GisGmpBuilder.SerializerObject(senderProvidedRequestData);
+
+            //Проверить ЭП-СП
+            var valid = Verification(GisGmpBuilder.SerializerObject(senderProvidedRequestData));
+
+
+            var smevSign = Signed(xmlSenderProvidedRequestData, x509Certificate2(), senderProvidedRequestData.Id);
+            var xmlSmevSign = GisGmpBuilder.SerializerObject(smevSign);
+
+            return client.SendRequest(
+                    senderProvidedRequestData,
+                    null,
+                    xmlSmevSign.DocumentElement,
+                    out _);
+        }
+
+        private static SmevAsyncProcessingMessage Status()
+        {
+            var timeStamp = new Timestamp() { 
+                Id = "SMEV", 
+                Value = DateTime.Now 
+            };
+            var xmlTimeStamp = GisGmpBuilder.SerializerObject(timeStamp);
+
+            var smevSign = Signed(xmlTimeStamp, x509Certificate2(), timeStamp.Id);
+            var xmlSignSMEV = GisGmpBuilder.SerializerObject(smevSign);
+
+            return client.GetStatus(
+                timeStamp, 
+                xmlSignSMEV.DocumentElement
+                );        
+        }
+
+        private static GetResponseResponseResponseMessage Response()
+        {
+            var messageTypeSelector = new MessageTypeSelector()
+            {
+                Id = "I"+Guid.NewGuid().ToString(),
+                Timestamp = DateTime.Now,
+                RootElementLocalName = "ExportPaymentsRequest",
+                NamespaceURI = "urn://roskazna.ru/gisgmp/xsd/services/export-payments/2.2.0",
+                //NodeID = ""
+            };
+
+            var xmlMessageTypeSelector = GisGmpBuilder.SerializerObject(messageTypeSelector);
+
+            var singSMEV = Signed(xmlMessageTypeSelector, x509Certificate2(), messageTypeSelector.Id);
+            var xmlSingSMEV = GisGmpBuilder.SerializerObject(singSMEV);
+
+            return client.GetResponse(
+                messageTypeSelector, 
+                xmlSingSMEV.DocumentElement
+                );              
+        }
+
+        private static void Ask(string messageId)
+        {
+            AckTargetMessage ackTargetMessage = new AckTargetMessage() { 
+                Id = "Ack", 
+                acceptedSpecified = true, 
+                accepted = true, 
+                Value = messageId 
+            };
+            var xmlAckTargetMessage = GisGmpBuilder.SerializerObject(ackTargetMessage);
+            
+            var signSMEV = Signed(xmlAckTargetMessage, x509Certificate2(), ackTargetMessage.Id);
+            var xmlSignSMEV = GisGmpBuilder.SerializerObject(signSMEV);
+
+            client.Ack(
+                ackTargetMessage, 
+                xmlSignSMEV.DocumentElement
+                );
+        }
+
+        #region Вспомогательные методы
         private static X509Certificate2 x509Certificate2(string serialNumCert = "7cd0ab00feac16b04da7aa974b7d74ec")
         {
             X509Certificate2 _x509Certificate2;
@@ -178,5 +251,6 @@ namespace Test
             }
             return valid;
         }
+        #endregion
     }
 }

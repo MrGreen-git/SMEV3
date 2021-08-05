@@ -13,6 +13,7 @@ namespace SMEV3v12.Types.Basic
     /// без фильтрации по типам.
     /// </summary>
     [Serializable]
+    [XmlRoot(Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2")]
     [XmlType(AnonymousType = true, Namespace = "urn://x-artefacts-smev-gov-ru/services/message-exchange/types/basic/1.2")]
     public class MessageTypeSelector
     {
